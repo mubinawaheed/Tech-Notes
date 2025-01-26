@@ -1,0 +1,28 @@
+JavaScript variables can belong to the local or global scope. Global variables can be made local (private) with closures.
+A closure is a function having access to the parent scope, even after the parent function has closed.  basically ek function milta ha usky environment k sth. lets say there is a nested function ab parent function child function return kr rha ha ab jab parent execute hogya tau usky variables bhi destroy hogaey , but child function jo return hua ha wo tau wo variables use kr rha ha tau ab kesa krega?, basically parent ek closure return krta i.e. function+environment or environment me already variables hoty hain. This environment is lexical environment. The references of lexical environment is return not the actual value, means agr wo variable kisi or line me within the parent function change higya tau updated value hi milegi
+
+
+
+	const add = (function () {
+	  let counter = 0;
+	  return function () {counter += 1; return counter}
+	})();
+
+	add();
+	add();
+	add();
+
+	// the counter is now 3
+	
+1. The variable add is assigned to the return value of a self-invoking function.
+
+2. The self-invoking function only runs once. It sets the counter to zero (0), and returns a function expression.
+
+3. This way add becomes a function. The "wonderful" part is that it can access the counter in the parent scope.
+
+4. This is called a JavaScript closure. It makes it possible for a function to have "private" variables.
+
+5. The counter is protected by the scope of the anonymous function, and can only be changed using the add function.
+
+Lexical scope is the definition area of an expression. In other words, an item's lexical scope is the place in which the item got created. Note: Another name for lexical scope is static scope. The place an item got invoked (or called) is not necessarily the item's lexical scope.
+

@@ -1,0 +1,9 @@
+IF i want to make a tree a heap tree then it must follow these 2 properties:
+1. structural property
+2. ordering property
+
+structural: agr kisi treee ko heap tree bnana ha tau it must be an ACBT (almost complete binary tree) ACBT means tree me next level me node tbhi add krni ha jab current node me dono left right nodes add krdi hon , means mene ek root node li or left node add krdi ab right node add krny k bjaey mene left k nechy ek or node add krdi so thats wrong thats not an ACBT. Second condition of acbt is first fill left child then fill right child
+
+ordering: we can take two types max heap and min heap. MAx heap value of parent node>child node on each level. Min heap parent<child
+
+in javascript => Object.freeze makes an object immutable by preventing new properties from being added, existing properties from being removed, and existing properties from being changed.

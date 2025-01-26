@@ -1,0 +1,27 @@
+Event bubbling is a type of DOM event propagation where the event first triggers on the innermost target element, and then successively triggers on the ancestors of the target element in the same nesting hierarchy till it reaches the outermost DOM element or document object
+
+stopPropagation(): it stops the propagation of a bubbling event from going further up the tree of elements that it's occurring in
+
+USE CASE:
+
+Instead of adding an event listener to multiple child elements, you can add it to a common parent, reducing the number of event listeners.
+Imagine you have a list of buttons, each performing some action when clicked. You could attach an event listener to each button individually, but if you have many buttons, this can become inefficient, and the code might get complex. Instead, you can use event delegation by attaching a single event listener to a common parent element.
+Using event bubbling, this listener can catch events triggered by any of its child elements (like individual buttons) when they bubble up to the parent. Here's how it works:
+
+	<div id="buttonContainer">
+  		<button data-action="save">Save</button>
+  		<button data-action="delete">Delete</button>
+  		<button data-action="edit">Edit</button>
+	</div>
+
+Now dont attach individual .addEventListener('onclick') on every button rather do this:
+
+	document.getElementById('buttonContainer').addEventListener('click', (event) => {
+  		const action = event.target.getAttribute('data-action');
+  		if (action) {
+    		console.log(`${action} button clicked`);
+    		// Perform specific action based on the button clicked
+  		}
+	});
+
+While JavaScript does not provide a direct way to "delegate" events down to child elements in the same way it allows for event bubbling up to parents, you can achieve similar behavior by using event listeners on parents to invoke functions in children or by dispatching custom events that children can listen to

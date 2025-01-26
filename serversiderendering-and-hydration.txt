@@ -1,0 +1,16 @@
+Hydration bridges the gap between server side rendering and client side rendering.
+in client side rendering the server sends static/raw HTML to the client along with css and js files. The app is built on frontend and it takes a litle time while browswer loads all the css and js in to the raw html that's why the user might see a blank page at the start but onces the DOM is built the app runs smoothly and the app is not built/loaded from scratch on any subsequent interactivity. 
+
+However in server side rendering the html and css is combined on the server. The HTMl is build on the backend and sent to the browser which simply displays it. The benefit of csr is once the html is received the user sees the app instantly. However this is time consuming and puts a lot of load on the server and can make apps slow The initial app is static so any type of JS interactivity is added afterwards. So a server side app might appear static  but it isn't. Here's where HYDRATION comes into play. Once the static app is displayed on the broswer the js files sent by the server take over. Scripts are excecuted, framework takes over and the app is rebuild on client, register the required event listeners restore the app's state associated with the session. When this process is completed the app is hydrated and works as expected. Hydration is only done once , when the app is first displayed on the browser.  subsequent user interactions are directly handled on the client side.
+
+Drawbacks of SSR+hydration:
+We start with first render on the server  which implies taking all t he code and executing it to get the static html. Then the HTML is sent to broswer along with all the js code which was just executed. On the browser the app is executed again and a second render happens to sprinkle in the interactivity. So all the code is executed twice and all the js scripts are sent over the network again though only parts of the app will end up being interactive. There's alot of redundant work.
+Solutions: island architecture and resumability.
+
+if we need to stick with hydration then a possible performance optimization technique is :(less important parts of the page can be lazily hydrated only on demand).
+
+in react server side rendering can be obtained via react server side components.
+
+React and next.Js use efficient  hydration strategies to achieve great performance these days.
+
+with ssr alone the user gets the HTML but waits on all-or-nothing hydration before being able to interact with javascript. To solve this react created suspense which allows for server side HTML-streaming and selective hydration on the client. By wrapping a component in <suspense/> u cann tell the server to deprioritize that component's rendering & hydration, letting other components load in without getting blocked by the hevaier ones. However if the user interacts with suspense wrapped ocmponent first then its rendering and hydration is prioritized first

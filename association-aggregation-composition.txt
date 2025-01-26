@@ -1,0 +1,56 @@
+
+Association: Has-a relationship, one class contains objects of another class but those objects can exist independently as well. An association is a “using” relationship between two or more objects in which the objects have their own lifetime and there is no owner. Association is a semantically weak relationship. For example we've 2 classes cars and drivers car contains a driver but both can exist independently as well.
+ClassA contains ClassB as an attribute, or Instances of ClassB are constructed inside ClassA.
+
+Code Example:
+	class Driver:
+		def __init__(self, name):
+			self.name = name
+
+	class Car:
+		def __init__(self, model):
+			self.model = model
+
+		def assign_driver(self, driver):
+			self.driver = driver
+
+	driver = Driver("Alice")
+	car = Car("Toyota")
+	car.assign_driver(driver)
+
+There are 2 forms of associations:
+
+	1. Composition: PART-OF relationship composition(“death” relationship): parent destroyed, child dies. Semantically stronger relationship. The life cycle of the part or child is controlled by the parent that owns it. A house may be composed of one or more rooms. If the house is destroyed, then all of the rooms that are part of the house are also destroyed.
+	
+	Code example: 
+		class Salary:
+			def __init__(self, pay):
+				self.pay = pay
+
+			def get_total(self):
+				return (self.pay * 12)
+
+		class Employee:
+			def __init__(self, pay, bonus):
+				self.pay = pay
+				self.bonus = bonus
+				self.obj_salary = Salary(self.pay)
+
+			def annual_salary(self):
+				return "Total: " + str(self.obj_salary.get_total() + self.bonus)
+
+		obj_emp = Employee(100, 10)
+		print(obj_emp.annual_salary())
+
+
+	2. Aggregation: Aggregation is defined by the HAS-A relationship which means that one object HAS-A RELATION with another object. but there exists an ownership as well. The owner can exist without the part or child and vice versa. examplA department can have students but vice versa is not possible and thus unidirectional in nature. In this relationship, one class contains a reference to another class and is considered independent of the other.
+
+
+by existing independently or getting destroyed means there namespace, in composition if namespace of parent is destroyed then the namespace of child is also destroyed but in aggregation the namespace of child is not destroyed if parent's namespace is destroyed.
+In aggregation , Memory for the child object is allocated independently. The parent object has a reference (pointer) to the memory location of the child object. When the parent object is destroyed, the child object remains in memory if it has other references pointing to it.  In composition, Memory for the child object is allocated within the context of the parent object. Therefore, When the parent object is destroyed, it triggers the destruction of the child object.
+
+In programming, especially in object-oriented programming, objects are allocated memory in two main areas: the stack and the heap
+Inline Allocation: In some languages like C++, the memory for the child can be allocated within the same memory block as the parent.
+Reference Allocation: In languages like Python, the parent holds a reference to the child object, and the garbage collector manages the memory.
+
+Inheritance — an “is a” relationship

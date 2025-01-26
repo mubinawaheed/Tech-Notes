@@ -1,0 +1,38 @@
+ARRAY METHODS AND THIER IMMUTABLE VERSIONS IN JAVASCRIPT:
+
+When we use methods like sort(), splice(), and reverse(), they mutate the original array. This can sometimes be an issue.
+
+But when using toSpliced(), toSorted(), and toReversed(), we can splice, sort, and reverse an array without mutating the source array. Here's how it works:
+In this example, we are using toSpliced() to splice the array, toSort() to sort the array, and toReversed() to reverse the array. They work just like regular splice, sort, and reverse but the catch is they will return a new array, and not mutate the original one.
+
+lastIndexOf() that will start from the end of the array and return the value of the first element that satisfies the condition.
+
+.with() is the non-destructive version of setting a value with square brackets:
+
+const original = ['a', 'b', 'c'];
+const updated = original.with(1, 'x');
+assert.deepEqual(updated, ['a', 'x', 'c']);
+// The original is unchanged
+assert.deepEqual(original, ['a', 'b', 'c']);
+
+
+findLast() is similar to .find() but starts searching at the end of an Array:
+
+> [4, 1, 2, 3].findLast(s => s%2 != 0)  // returns 3
+
+.findLastIndex() is similar to .findIndex() but starts searching at the end of an Array:
+
+> ['', 'a', 'b', ''].findLastIndex(s => s.length > 0)
+2
+
+Method .at() of indexable values lets us read an element at a given index (like the bracket operator []) and supports negative indices (unlike the bracket operator).
+
+> ['a', 'b', 'c'].at(0)
+'a'
+> ['a', 'b', 'c'].at(-1)
+'c'
+
+
+lets us replace all matches of a regular expression or a string (.replace() only replaces the first occurrence of a string):
+> 'abbbaab'.replaceAll('b', 'x')
+'axxxaax'

@@ -1,0 +1,3 @@
+CTE -> common table expressions, they are created in memory. They are also called with queries
+
+they start with a "with CTE_employee" keyword then in the parentheses we right our select query

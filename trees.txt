@@ -1,0 +1,33 @@
+A t ree is a recursive data structure.
+
+Binary Tree: A tree with atmost 2 child nodes. (0,1 or 2 childnodes).
+
+Depth of node: Distance of a node from root node. (count edges).
+
+Levels in a tree start from 0.
+
+The height of binary tree is the number of levels in the tree.
+
+The width of node is the number of nodes on the level containing the most nodes.
+
+Size of binary tree is number of nodes in the tree.
+
+Full Binary tree or Strictly binary Tree-SBT: A node can have no children or 2 children. 1 child is not allowed.
+
+Perfect binary tree: A binary tree in which all leaf nodes are on same level. It is a SBT with each node having only 2 children. It has all slots filled.
+
+Almost complete binary tree ACBT: It is a type of binary tree where all levels are filled except for the last level, which is only partially filled from left to right. 
+In an ACBT, nodes are inserted level by level and from left to right. The next level can only be reached if the previous level is full.
+The left and right subtrees of ACBT differ in height by 0 or 1
+
+Every PBT is a ACBT but not every ACBT is a PBT
+
+A height-balanced binary tree is a binary tree in which the depth of the two subtrees of every node never differs by more than one.
+
+DFS- Depth for search has 3 traversal methods: 
+	1. inordertraversal
+	2. preordertraversal
+	3. postordertraversal
+
+
+DFS does not explicitly include null for missing nodes. It only records the values of nodes in the specific traversal order.

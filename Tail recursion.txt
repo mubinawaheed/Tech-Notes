@@ -1,0 +1,2 @@
+When the base case is reached there is no value to return to the calling function just a simple transfer of control takes place.
+if a tail recursion is identified in the code, it should be replaced with iterative code. because it leads to higher space complexity.

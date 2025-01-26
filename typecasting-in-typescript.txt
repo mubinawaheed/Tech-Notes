@@ -1,0 +1,10 @@
+type assertion is a way of telling typescript, that ik about the type more than you do. it is used to avoid compiler checks.
+
+let a:any='mubina';
+let knownstr = <string>a //typecasted into an string type object.
+
+another way to do this is 
+let knownstr = str as string
+
+
+Unknown is also similar to any but we can't call methods of any type on it. nor we can assign it to a well define type. Its the safe version of any.

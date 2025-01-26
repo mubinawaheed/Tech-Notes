@@ -1,0 +1,5 @@
+query to fetch values in table test_a that are and not in test_b without using the NOT keyword.
+select * from test_a
+except
+select * from test_b;
+

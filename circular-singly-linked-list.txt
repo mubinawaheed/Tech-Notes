@@ -1,0 +1,1 @@
+In CSLL it is possible to visit nodes before head. Any node can be head node in the CSLL.

@@ -1,0 +1,15 @@
+A wrapper function is a function that encapsulates or "wraps" another function. The primary purpose of a wrapper function is to add some additional behavior or processing before and/or after the execution of the wrapped function. This can be useful for a variety of tasks such as logging, input validation, error handling, resource management, or altering the behavior of the wrapped function without modifying its code.
+
+def validate_inputs(func):
+    def wrapper(x, y):
+        if not isinstance(x, int) or not isinstance(y, int):
+            raise ValueError("Inputs must be integers")
+        return func(x, y)
+    return wrapper
+
+@validate_inputs
+def multiply(x, y):
+    return x * y
+
+multiply(4, 5)  # Works fine
+multiply(4, 'a')  # Raises ValueError: Inputs must be integers

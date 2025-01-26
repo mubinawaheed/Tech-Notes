@@ -1,0 +1,18 @@
+call stack in javascript:
+The call stack in JavaScript is a structure that tracks function calls. It operates on a “Last In, First Out” basis, meaning the last function called is the first to finish. It aids in debugging by showing the order of function execution, helping identify code issues.
+
+Everything in JavaScript happens within an Execution Context, making it an indispensable component. When you run a JavaScript program, a global execution context is initially created. This global execution context consists of two main components: the Memory Component and the Code Component.
+
+1. Memory Creation Phase:
+Allocates memory for variables and functions, initializing variables with “undefined.”
+Stores the entire function code in the allocated memory space.
+2. Code Execution Phase:
+Executes the code line by line after memory allocation.
+Replaces “undefined” with the actual value for variables during assignment.
+Executes the code within functions, storing the results in memory.
+This two-phase process forms the backbone of how JavaScript manages memory and executes code.
+
+Global execution context is placed at the bottom of the callstack because The global context serves as the foundation for all other contexts. Placing it at the bottom ensures that it’s the first to be executed and the last to be removed.
+
+A Stack Overflow occurs when there is recursive function without an exit point. The Call Stack has a limited capacity. If too many functions are called without completing, it can lead to a stack overflow.
+Tail-call optimization (TCO) is one technique that some environments support to mitigate stack overflow issues.
