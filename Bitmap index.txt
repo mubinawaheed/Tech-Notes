@@ -1,0 +1,4 @@
+Low cardinality means a column has many repeated values
+Bitmap Indexing in DBMS: It involves creating a bitmap index, which is a data structure that represents the presence or absence of data values in a table or column. Bitmap Indexing is a special type of database indexing that uses bitmaps. This technique is used for huge databases when the column is of low cardinality and these columns are most frequently used in the query.
+In a bitmap index, each distinct value in a column is assigned a bit vector that represents the presence or absence of that value in each row of the table. The bit vector contains one bit for each row in the table, where a set bit indicates the presence of the corresponding value in the row, and a cleared bit indicates the absence of the value.
+Bitmap Index is used to reduce the response time for large classes and queries.
