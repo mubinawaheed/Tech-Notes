@@ -1,0 +1,10 @@
+Decorators: Decorators are special kinds of declarations that can be attached to a class, method, accessor, property, or parameter. They provide a way to add metadata to these elements and can modify their behavior.
+
+The defineMetadata method is used to attach metadata to an object or a property of an object. Let's break down the four arguments it takes:
+metadataKey: A key to identify the metadata. It’s usually a string or a symbol that uniquely identifies the metadata being set.
+metadataValue: The value of the metadata. This can be any type of value you want to store, such as a string, number, object, etc.
+target: The target object to which the metadata is being attached. This could be a class, a prototype, or an instance of a class.
+propertyKey: (Optional) The key of the property of the target object to which the metadata is being attached. This is typically a string or a symbol representing the name of the property.
+
+
+https://chatgpt.com/c/0b258fb9-a99e-466c-9c1d-7e2f9fce2644

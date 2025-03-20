@@ -1,0 +1,6 @@
+Quick sort: Good sorting algorithm with worst case time complexity o(n2) and best case : O(nlogn).
+it is an inplace or in-situ algorithm because it returns the sorted array in the same array without using additional data structures. Though it uses an stack to hold partitioned sub sequences.
+
+The number of elements/subsequences in the stack is equal to the number of edges in the longest branch of the tree.
+
+Space complexity of best case of quickSort is O(logn) and worst case is o(n)	

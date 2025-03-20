@@ -1,0 +1,46 @@
+prerequisites for react :
+1. lexical this
+2. named exports/imports, default exports
+3. map, filter , reduce
+4. hooks, components
+5. sockets, webRTC ( advanced )
+
+react topics:
+1. Concept of DOM & dynamic websites
+2. components, states, rendering & props
+3. Hooks
+4. prop drilling(anti-pattern), context API and suspense API
+5. state management (to prevent re-rendering of components)
+6. routing
+7. styling (tailwind, materialUI)
+8. bootstraping a react app--webpack, babel, vite
+9. performance improvements - Forms (reactHookForm , formik - libraries)
+10. fetching data from backend libraries - SWR , react query
+
+  useEffect((
+  ) => {    localStorage.setItem("ITEMS", JSON.stringify(todos))
+}, [todos]) //everytime the value in [] changes , the callback function passed as 1st parameter is called.
+  
+  
+useEffect component k mount hony pr chlta ha, passing empty dependency array means, kuch bhi na change hony pr bhi useEffect trigger hoga, agr hm ismy koi state value pass krdengy tau wo srf us state k change hony pr trigger hoga. Empty array means jab jab component mount hoga tab ye chlega
+  
+If you pass an empty array [] as the dependency array in useEffect, it tells React that the effect doesn't depend on any values from the component's state or props. This means the effect will only run once when the component mounts, and not again on subsequent re-renders. runs only on the first render
+
+mount or render hony me farq ha
+
+updating the actual dom is done by reactDom library.
+let a=useRef(0) -- across re renders a ki value change nhi hogi mtlb if i use let a=1 and increment its value in useEffect tau jab bhi component render hoga a waps sy 1 hojaega uski incremented value nhi dikhegi hmen tau to solve this we use useRef. jab bhi useRef ki value change hoti ha useEffect trigger nhi hota. across rerenders value persist krti.
+
+During component mounting, actual DOM elements are created and inserted into the DOM. Re-rendering typically involves updating the virtual DOM and reconciling it with the actual DOM, which may or may not result in actual DOM manipulations depending on the changes.
+
+useRef is an alternative to dom manipulation. 
+useRef should be use when you want to update any value (or manipulate dom) which is not used in render code (i.e. the code after return statement). This is because useRef does not re render the component
+
+https://opentdb.com/api.php?category=18&amount=20&difficulty=easy&type=multiple
+
+
+useCallback freezes your component.
+
+The memo in react: My Component will only re-render if its prop1 or prop2 values change. If the parent component re-renders but passes the same props, MyComponent will not re-render, improving performance.
+
+UseCallback hook: freezes your component. Lets say you have memoized your child component but it still re renders whenever parent is rendered. This is because you have passed a function as a prop to that child component and a function is always changed when you rerender a component so the child component assumes that props have changed and hence re renders. To solve this, we wrap the function inside a useCallback hook. UseCallback memoizes the function and the useMemo memoizes the variable.

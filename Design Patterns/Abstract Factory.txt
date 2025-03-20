@@ -1,0 +1,65 @@
+The Abstract Factory Pattern is one of the creational design patterns that provides an interface for creating families of related or dependent objects without specifying their concrete classes and implementation, in simpler terms the Abstract Factory Pattern is a way of organizing how you create groups of things that are related to each other.
+Abstract Factory patterns work around a super-factory which creates other factories.
+At runtime, the abstract factory is coupled with any desired concrete factory which can create objects of the desired type.
+from abc import ABC, abstractmethod
+
+# Abstract product classes
+class Smartphone(ABC):
+    @abstractmethod
+    def create(self):
+        pass
+
+class Smartwatch(ABC):
+    @abstractmethod
+    def create(self):
+        pass
+
+# Concrete product classes
+class iPhone(Smartphone):
+    def create(self):
+        return "iPhone created"
+
+class AppleWatch(Smartwatch):
+    def create(self):
+        return "Apple Watch created"
+
+class SamsungPhone(Smartphone):
+    def create(self):
+        return "Samsung phone created"
+
+class GalaxyWatch(Smartwatch):
+    def create(self):
+        return "Galaxy Watch created"
+
+# Abstract Factory
+class DeviceFactory(ABC):
+    @abstractmethod
+    def create_smartphone(self):
+        pass
+
+    @abstractmethod
+    def create_smartwatch(self):
+        pass
+
+# Concrete factories
+class AppleFactory(DeviceFactory):
+    def create_smartphone(self):
+        return iPhone()
+
+    def create_smartwatch(self):
+        return AppleWatch()
+
+class SamsungFactory(DeviceFactory):
+    def create_smartphone(self):
+        return SamsungPhone()
+
+    def create_smartwatch(self):
+        return GalaxyWatch()
+
+# Client code
+factory = AppleFactory()
+phone = factory.create_smartphone()
+watch = factory.create_smartwatch()
+
+print(phone.create())  # Output: iPhone created
+print(watch.create())  # Output: Apple Watch created

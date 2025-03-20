@@ -1,0 +1,9 @@
+Messaging queues: A message queue is a form of asynchronous service-to-service communication used in serverless and microservices architectures. Messages are stored on the queue until they are processed and deleted. Each message is processed only once, by a single consumer. SQS is a messaging queue. When a message needs to be processed by more than one consumer, message queues can be combined with Pub/Sub messaging in a fanout design pattern. in pubsub there are topics producers send the message to a specific topic and all the consumers that have subscribed to that topic can read and process that message example of this type is KAFKA.
+
+
+Dead Letter Queues (DLQs) are a mechanism for handling messages that cannot be processed successfully. This includes:
+
+Messages with errors in their content or format.
+Messages that exceed their time-to-live (TTL) or delivery attempts.
+Messages that cannot be delivered to any consumer.
+These are mostly used in payment systems to retry failed payments.

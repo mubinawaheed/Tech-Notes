@@ -1,0 +1,28 @@
+Generators in JavaScript are special functions that can be paused and resumed, allowing you to control their execution. They are defined with an asterisk * (e.g., function*) and use the yield keyword to produce values one at a time, rather than all at once.
+
+function* countUp() {
+  yield 1;
+  yield 2;
+  yield 3;
+}
+
+const counter = countUp();
+console.log(counter.next().value); // 1
+console.log(counter.next().value); // 2
+console.log(counter.next().value); // 3
+
+USE CASE: generators allow you to produce sequences of values lazily, meaning they generate each value only when requested, rather than storing the entire sequence in memory. This is especially useful for handling large datasets or infinite sequences, as it avoids the need to create and store all elements at once. Below is the given example:
+
+function* infiniteCounter() {
+  let i = 0;
+  while (true) {
+    yield i++;
+  }
+}
+const counter = infiniteCounter();
+console.log(counter.next().value); // 0
+console.log(counter.next().value); // 1
+console.log(counter.next().value); // 2
+// and so on...
+
+Here, instead of creating an infinite array, infiniteCounter generates each number one at a time. Since only one value is produced per call, memory is conserved, making this efficient for long or endless sequences

@@ -1,0 +1,1 @@
+A run time stack is a OS level stack hidden from the programmer. The system stores the activation records on a runtime stack. An activation record contains information on the next instruction to be executed. The activtion record is created for every function call

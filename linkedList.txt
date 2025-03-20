@@ -1,0 +1,2 @@
+Insertion in linkedList : Inserts a node after the node pointed to by head/self.
+Deletion in linkedList : Delets a node after the node pointed to by head/self.

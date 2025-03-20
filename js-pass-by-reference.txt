@@ -1,0 +1,2 @@
+
+in javascript => Object.freeze makes an object immutable by preventing new properties from being added, existing properties from being removed, and existing properties from being changed.

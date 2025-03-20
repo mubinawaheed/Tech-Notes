@@ -1,0 +1,9 @@
+strings are immutable in c#, but still if we reassign the value it's done without error. 
+string name='ali'
+name='hehe' //no error
+
+THIS is also applicable to objects
+so how does it works=> immutable objects are stored in heap so when we create the variable name its value is stored in a heap and the reference to this value is stored in variable name which is stored on stack. so now when we reassign name to a new value, a new string object is created with the same variable name and a new entry is added into the heap and the variable name present in the stack is now updated to hold the reference to this new heap address, thats why we get the feel k variable update hogya. now this leads to a potential vulnerability, so a concept called string builder is introduced.
+
+
+In C#, variables that hold references to objects (such as strings) store these references in a part of memory known as the stack, while the actual objects themselves are stored on the heap. 

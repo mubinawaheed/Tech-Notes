@@ -1,0 +1,15 @@
+The rest operator, on the other hand, is used to collect multiple elements into a single array. It allows you to represent an indefinite number of arguments as an array, making it particularly useful for function parameters.
+
+
+function sum(...numbers) { // this is rest operator
+  return numbers.reduce((acc, curr) => acc + curr, 0);
+}
+
+console.log(sum(1, 2, 3, 4)); // 10
+
+Destructuring: You can use the rest operator to collect remaining properties in an object during destructuring.
+
+
+
+
+

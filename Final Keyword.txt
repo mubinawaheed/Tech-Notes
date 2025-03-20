@@ -1,0 +1,4 @@
+Final Class: Prevents a class from being inherited.
+Final Method: Prevents a method from being overridden in subclasses.
+Final Variable: Prevents a variable from being reassigned.
+Python provides Final from the typing module to prevent a method from being overridden

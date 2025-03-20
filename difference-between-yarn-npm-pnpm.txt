@@ -1,0 +1,4 @@
+Unlike NPM and Yarn, which often create separate copies of the same packages for each project, PNPM uses a more efficient system. Here's a simple example to explain:
+Imagine you have three projects (A, B, and C), and all of them use the same package, "lodash."
+- **NPM/Yarn**: Each project will have its own copy of "lodash," so you end up with three separate copies.
+- **PNPM**: Instead of making three copies, PNPM stores "lodash" in a central place and creates shortcuts (hard links) to it for each project. This means all three projects share the same single copy of "lodash," saving a lot of space and avoiding unnecessary duplication.

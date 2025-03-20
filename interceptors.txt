@@ -1,0 +1,7 @@
+An Interceptor is a function that is invoked by the framework BEFORE or AFTER an action invocation.  commonly used in network requests or middleware. They are often used in HTTP client libraries like Axios to add headers, handle errors, log requests, or modify data.
+
+For example, with Axios:
+
+Request interceptors modify outgoing requests before they're sent.
+Response interceptors handle incoming responses before they're processed by the application.
+This helps centralize functionality like authentication, error handling, or logging across multiple requests.

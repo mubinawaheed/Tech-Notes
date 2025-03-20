@@ -1,0 +1,16 @@
+The greedy approach in programming is like making decisions step by step, always choosing the option that looks the best at that moment. The idea is to pick the locally optimal choice at each step, hoping that this leads to the best overall solution.
+Think of it as taking the "shortest path" or "quick win" without worrying too much about future consequences.
+
+Problem:
+
+You have coin piles with these numbers of coins:
+[25, 10, 15, 5, 20]
+
+Your task is to collect as many coins as possible in 2 turns.
+What's the greedy approach?
+
+    Look at all the piles and pick the one with the most coins first.
+        First turn: Pick 25 coins (from the first pile). Remaining: [0, 10, 15, 5, 20]
+
+    Look again and pick the pile with the most coins left.
+        Second turn: Pick 20 coins (from the last pile). Remaining: [0, 10, 15, 5, 0]

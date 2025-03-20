@@ -1,0 +1,23 @@
+HEAD: head refers to the pointer to the latest commit on the branch. when you push a new commit the head is shifted to that commit. In Git, each branch has its own HEAD. 
+
+When you switch branches, HEAD updates to point to the latest commit on the new branch
+
+git reset <commitID> : Any changes made after <commitID> that are not committed will be lost. This means that the state of your project will look exactly as it did at the <commit ID> commit, with all subsequent changes removed., but the changes are still visible in  the file it does not removes the changes from our current code, (can be verified via git logs). Moves HEAD to the specified commit (commit ID).s
+
+
+git reset <commitID> --hard: This will undo the commits made after <commitID> as well as remove the changes from the current file. (DANGEROUS). Now there's no way to get those changes. Git reset hard can be used to undo merges. for example i merged a branch in master then i do git reset hard then the changes would be removed from master as well as my local copy. However, the changes will still be present in that branch and we can safely merge that branch again into master.
+
+$ git reset --hard HEAD       (going back to HEAD)
+
+$ git reset --hard HEAD^      (going back to the commit before HEAD)
+$ git reset --hard HEAD~1     (equivalent to "^")
+
+$ git reset --hard HEAD~2     (going back two commits before HEAD)
+
+git reset --mixed fe124121: HEAD moves to match the state to the commit ID specified, the staging area is reset, but the working directory remains unchanged.
+
+git checkout <branch name>: switches the current working branch. for example if i'm on branch a and i have uncommitted code in it if i checkout to master then i'll be on the code that is in master brnch.
+jis branch me merge krna hota ha uspr pehly checkout krty. 
+If you want to create a new branch and start working on it right away, using git checkout -b <branch-name> or git switch -c <branch-name> is the recommended approach.
+
+git merge xyz: when we merge xyz into master then the entire commit history i.e. all the commits made uptil now on xyz branch are visible on the master branch as well (see git logs). In order to mitigate this we can add squash flag git merge xyz --squash. In this case we have fast forwarded and head is not updated. To update the head we can another commit, git commit -m "added new feature". Now head will be updated to new commit. The working directory will be clean now. (NOTE: we won't have to do git add again in this case)

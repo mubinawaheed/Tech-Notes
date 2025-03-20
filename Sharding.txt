@@ -1,0 +1,27 @@
+Breaking large tables into partitions (each of which contains the subset of the whole table) and storing each partition on separate servers is called sharding.
+
+Sharding Techniques:
+geo, range-based, hash, and directory
+
+Manual vs Automatic sharding:
+
+
+Hot spots
+
+
+
+Each shard is a live production database server.
+
+
+
+Sharding in sql and nosql
+
+
+Sharding improves query performance and reduces processing time.
+Avoids single point of failure.
+sharding is like horizontal scaling, you can also add shard on runtime.
+All shards run on different nodes/servers but share the same schema.
+
+Software developers will use a shard key to decide how to partition a dataset.
+
+sharding mostly work on shared-nothing type of architecture because nodes/physical shards are independent of each other.

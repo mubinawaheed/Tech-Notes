@@ -1,0 +1,20 @@
+Conclusion
+	Summary
+
+Despite the advancements in artificial intelligence, the detection of insider threats is not completely accurate. This is partly due to the fact that not all organizations report incidents involving insider attacks, thus, limiting the scope of the solutions to synthetic data. This research project uses AI and frequency based techniques for  feature extraction and applies LSTM autoencoder to generate the baseline of routine activities of every user. This solution produces an overall accuracy of 83%. The solution is being developed with reference to a research solution proposed by (Sharma et al., 2020). 
+Lastly, a user interface is also developed that serves to explore the explainability of the results.  This dashboard helps to analyze the user activity over any period of time and correlate different activities with each other to understand what the user has been doing all along this entire time. 
+
+Recommendations and future work
+
+1.	Use of psychometric log file
+There is vast scope for future work on UEBA for security analysis and insider threat management. An important aspect exhibiting user behavior inclination included in the dataset is the psychometric information about a user. The psychometric.csv log file contains information about the different personality traits of the user. This information had not been used in the proposed solution. However, relevant feature extraction can be performed on this log file to extract information about a user’s personality. These features will further improve the performance of the deep learning model and increase the accuracy and explainibility of the results .
+
+2.	Use of topic modelling for http.csv log file
+Another possible future work would be to use topic modeling technique on http.csv file to extract information about what kind of websites are being visited by a user. The proposed solution extracted this information using reverse engineering technique to get the count of normal and malicious websites visited by  a user. Moreover, the performance of the system could also be improved  by using actual hyperlinks instead of dead links given in the dataset.
+
+
+3.	Use of real-time data:
+The proposed solution is developed using a synthetic dataset. This limits its ability to encompass a vast range of other threat scenarios. The problem with insider threats is that, it is not possible to capture each and every threat scenario and insider perspective in a single dataset. Moreover, the scenarios also vary from organization to organization. Therefore, to improve the quality of the solution and make it deployable in industries, it is necessary that this UEBA system must be integrated with a real-time log collection and monitoring  mechanism so that the system could be trained on more realistic data instead of a limited sythetic data.
+
+4.	Session based feature extraction:
+The feature vector prepared  for this solution is on daily basis. Every user activity is logged and analyzed for 24 hours daily for 18 months. However, another  possible future work is to record the user activity for every particular session. It would eliminate the problem of data redundancy and help to get more deeper insights about a user. 

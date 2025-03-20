@@ -1,0 +1,25 @@
+ASP.NET is a web application framework within the .NET framework. It stands for Active Server Pages.NET and is designed for building dynamic web applications and services. Whereas dotnet provides a platform for building, deploying, and running applications
+
+dotnet was not open source it was only for windows OS. But then microsoft released dotnet core which was open source cross platform.
+
+dotnet framework was launched in 2001 as dotnet 1.0.
+
+In 2016 dotnet core 1.0 was introduced.
+
+asp.net core is new version of asp.net
+
+It was initially launched as asp.net 5.0 but was later named to asp.net core 1.0
+
+ASP.NET Core, the open-source, cross-platform version of the ASP.NET web framework, was officially launched alongside .NET Core on June 27, 2016. 
+
+before asp.net core microsoft already had 2 different frameworks asp.net web forms and asp.net mvc
+
+asp.net core x.0 is based on dotnet core x.0
+
+from dotnet core 5.0 onwards the word "core" is dropped.
+
+dotnet framework does not directly support dependency injection.
+dotnet framework does not support microservice.
+dotnet core application is shipped as a collection of nugget packages
+
+

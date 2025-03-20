@@ -1,0 +1,2 @@
+
+All computers use postfix notation to process mathematical operations

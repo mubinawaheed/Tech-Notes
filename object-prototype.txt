@@ -1,0 +1,1 @@
+Object prototype. The object inherits the properties of the prototype object. If the prototype value is changed all the new objects will have changed prototype value and all the old objects will have old value

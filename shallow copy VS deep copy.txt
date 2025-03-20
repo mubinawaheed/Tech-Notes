@@ -1,0 +1,9 @@
+A shallow copy creates a new object that is a copy of the original object, but it does not recursively copy nested objects. Instead, it copies references to those nested objects. As a result, if the nested objects are modified, the changes will affect both the original and the copied object.
+Only the top-level properties are copied; nested objects are shared between the original and copied objects.
+Modifications to nested objects in either the original or copied object affect both.
+Following create a shallow copy
+1. object.assign
+2. spread operator ...
+3. array slice
+
+A deep copy, on the other hand, creates a new object that is a copy of the original object, including all nested objects. This means that the new object is completely independent of the original object. Changes made to the nested objects in the copied object will not affect the original object.
