@@ -1,0 +1,61 @@
+The Builder Design Pattern is a creational pattern that separates the construction of a complex object from its representation. This allows you to create different representations of an object using the same construction process.
+When to Use the Builder Pattern?
+
+    When an object has many optional parameters or complex initialization.
+    When you need to create multiple variations of an object.
+    When you want to improve code readability and maintainability.
+
+Structure of the Builder Pattern
+
+The Builder pattern typically consists of four components:
+
+    Product → The complex object being constructed.
+    Builder Interface → Defines methods for building parts of the product.
+    Concrete Builder → Implements the builder interface and assembles the product.
+    Director (Optional) → Manages the construction process.
+
+Example: Builder Pattern in Python:
+
+class Car:
+    def __init__(self, engine, seats, airbag):
+        self.engine = engine
+        self.seats = seats
+        self.airbag = airbag
+
+    def __str__(self):
+        return f"Car [Engine={self.engine}, Seats={self.seats}, Airbag={self.airbag}]"
+
+class CarBuilder:
+    def __init__(self):
+        self.engine = None
+        self.seats = None
+        self.airbag = None
+
+    def set_engine(self, engine):
+        self.engine = engine
+        return self  # Enables method chaining
+
+    def set_seats(self, seats):
+        self.seats = seats
+        return self
+
+    def set_airbag(self, airbag):
+        self.airbag = airbag
+        return self 
+
+    def build(self):
+        return Car(self.engine, self.seats, self.airbag)
+
+
+if __name__ == "__main__":
+    car = CarBuilder() \
+        .set_engine("V8") \
+        .set_seats(4) \
+        .set_airbag(True) \
+        .build()
+
+    print(car)
+
+Car class → The final product.
+CarBuilder class → Helps in constructing the Car step by step.
+Method Chaining → self is returned to allow a fluent API style.

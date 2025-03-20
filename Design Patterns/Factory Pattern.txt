@@ -1,0 +1,87 @@
+The factory design pattern is used when we have a superclass with multiple sub-classes and based on input, we need to return one of the sub-class. This pattern takes out the responsibility of the instantiation of a class from the client program to the factory class. IT is a creational design pattern used in software development. It provides an interface for creating objects in a superclass while allowing subclasses to specify the types of objects they create.
+Components of Factory Method Design Pattern
+
+Below are the main components of Factory Design Pattern:
+
+Creator: This is an abstract class or an interface that declares the factory method. The creator typically contains a method that serves as a factory for creating objects. It may also contain other methods that work with the created objects.
+
+Concrete Creator: Concrete Creator classes are subclasses of the Creator that implement the factory method to create specific types of objects. Each Concrete Creator is responsible for creating a particular product.
+
+Product: This is the interface or abstract class for the objects that the factory method creates. The Product defines the common interface for all objects that the factory method can create.
+
+Concrete Product: Concrete Product classes are the actual objects that the factory method creates. Each Concrete Product class implements the Product interface or extends the Product abstract class.
+
+Example: Consider a software application that needs to handle the creation of various types of vehicles, such as Two Wheelers, Three Wheelers, and Four Wheelers. Each type of vehicle has its own specific properties and behaviors.
+
+
+// Library classes
+abstract class Vehicle {
+    public abstract void printVehicle();
+}
+
+class TwoWheeler extends Vehicle {
+    public void printVehicle() {
+        System.out.println("I am two wheeler");
+    }
+}
+
+class FourWheeler extends Vehicle {
+    public void printVehicle() {
+        System.out.println("I am four wheeler");
+    }
+}
+
+// Factory Interface
+interface VehicleFactory {
+    Vehicle createVehicle();
+}
+
+// Concrete Factory for TwoWheeler
+class TwoWheelerFactory implements VehicleFactory {
+    public Vehicle createVehicle() {
+        return new TwoWheeler();
+    }
+}
+
+// Concrete Factory for FourWheeler
+class FourWheelerFactory implements VehicleFactory {
+    public Vehicle createVehicle() {
+        return new FourWheeler();
+    }
+}
+
+// Client class
+class Client {
+    private Vehicle pVehicle;
+
+    public Client(VehicleFactory factory) {
+        pVehicle = factory.createVehicle();
+    }
+
+    public Vehicle getVehicle() {
+        return pVehicle;
+    }
+}
+
+// Driver program
+public class GFG {
+    public static void main(String[] args) {
+        VehicleFactory twoWheelerFactory = new TwoWheelerFactory();
+        Client twoWheelerClient = new Client(twoWheelerFactory);
+        Vehicle twoWheeler = twoWheelerClient.getVehicle();
+        twoWheeler.printVehicle();
+
+        VehicleFactory fourWheelerFactory = new FourWheelerFactory();
+        Client fourWheelerClient = new Client(fourWheelerFactory);
+        Vehicle fourWheeler = fourWheelerClient.getVehicle();
+        fourWheeler.printVehicle();
+    }
+}
+
+
+In the above code:
+1. Vehicle serves as the Product interface, defining the common method printVehicle() that all concrete products must implement.
+2. TwoWheeler and FourWheeler are concrete product classes representing different types of vehicles, implementing the printVehicle() method.
+3. VehicleFactory acts as the Creator interface (Factory Interface) with a method createVehicle() representing the factory method.
+4. TwoWheelerFactory and FourWheelerFactory are concrete creator classes (Concrete Factories) implementing the VehicleFactory interface to create instances of specific types of vehicles.
+

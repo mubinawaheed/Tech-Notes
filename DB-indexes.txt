@@ -1,0 +1,21 @@
+If we dont have any indexes on table then queries will be very inefficient leading to full table scans. We can create a primary index ( automatically created on primary key col). Or we can create a clustered index.
+Data in the table is physically sorted and stored based on the clustered index column.
+
+CREATE CLUSTERED INDEX index_name on PRODUCT(ID).
+
+This would create a clustered index on ID column of products table. It would also order the ID col in ascending order.
+
+NON-Clustered INDEX
+
+CREATE INDEX index_name on PRODUCT(Name)
+
+Here we created a nonclustered index on product name column. Under the hood it would create another table containing product name and id columns, whenever this col is used in where clause it would first lookup in that hidden table to grab the ID of the row in products table that has that name.
+Non-Clustered Column:
+Logical Order: The index stores pointers to the physical data instead of reorganizing it.
+
+Use non-clustered indexes when:
+1. Querying specific columns (not the whole row).
+2. Performing lookups or searches frequently.
+
+
+One Per Table: Only one clustered index is allowed since it dictates the table's physical order.

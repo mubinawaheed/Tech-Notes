@@ -1,0 +1,75 @@
+The Template Design Pattern is a behavioral design pattern that defines the basic structure of an algorithm in a superclass, while allowing subclasses to provide specific implementations of certain steps of the algorithm without modifying its overall structure. It promotes code reuse and enforces a common algorithm structure across multiple subclasses.
+
+Let’s have a basic example to understand all this . Suppose we want to buy a phone now we can buy it in two ways either we can go to a phone store or we can buy it offline . Now the steps involved in this complete process is selecting a phone , then after this your phone goes for packaging , then after it is being packed you will make payment and at last phone is delievered to you . So you can see that whether you buy phone online or offline the steps involved in buying are same although their implementation can be different . The important point is that the we can’t change the order of execution because we can’t buy a phone before selecting it .So in this case we can create a template method that will use different methods to buy the phone . Here we can provide base implementation for the steps that are same in buying phone , if subclasses want to override this method, they can.
+
+
+abstract public class PhoneOrderTemp
+{
+    final void createOrder()
+    {
+        //series of method invocation
+        selectProduct();
+        packProduct();
+        makePayment();
+        deliverProduct();
+    }
+    abstract void selectProduct();
+    abstract void makePayment();
+    void packProduct() {
+        System.out.println("paking the product");
+    }
+
+    abstract void deliverProduct();
+}
+
+public class OnlineStore extends PhoneOrderTemp
+{
+    @Override
+    void selectProduct()
+    {
+        System.out.println("selecting the product in online store");
+    }
+
+    @Override
+    void makePayment() {
+        System.out.println("making the payment in online store");
+    }
+
+    @Override
+    void deliverProduct() {
+        System.out.println("product delivered at home of the client");
+    }
+}
+
+public class OfflineStore extends PhoneOrderTemp
+{
+    public OfflineStore()
+    {
+
+    }
+    @Override
+    void selectProduct()
+    {
+        System.out.println("selecting the product in offline store");
+    }
+
+    @Override
+    void makePayment() {
+        System.out.println("making the payment in offline store");
+    }
+
+    @Override
+    void deliverProduct() {
+        System.out.println("product deliverd in hands in offline store");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        PhoneOrderTemp offlineStore = new OfflineStore();
+        //offlineStore.createOrder();
+
+        PhoneOrderTemp onlineStore = new OnlineStore();
+        onlineStore.createOrder();
+    }
+}
